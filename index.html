@@ -7,15 +7,54 @@
     <title>EXIF</title>
 </head>
 <body>
-<img src="cathedral.jpg" id="the-img" style="max-width: 200px;"><br>
-<p id="pic-info"></p>
-<p id="map-link"></p>
-
+    <form enctype="multipart/form-data">
+        <input name="file" type="file" />
+        <input type="button" value="Upload" />
+    </form>
+    <p id="pic-info"></p>
+    <p id="map-link"></p>
 
     <script type="text/javascript" src="exif.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+        
+        $(':file').on('change', function () {
+            var file = this.files[0];
 
-        document.getElementById("the-img").onclick = function() {
+            EXIF.getData(file, function() {
+
+                myData = file;
+
+                console.log(myData.exifdata);
+
+                document.getElementById('pic-info').innerHTML = 'This photo was taken on ' + myData.exifdata.DateTime + ' with a ' + myData.exifdata.Make + ' ' + myData.exifdata.Model;
+
+                // Calculate latitude decimal
+                var latDegree = myData.exifdata.GPSLatitude[0].numerator;
+                var latMinute = myData.exifdata.GPSLatitude[1].numerator;
+                var latSecond = myData.exifdata.GPSLatitude[2].numerator;
+                var latDirection = myData.exifdata.GPSLatitudeRef;
+
+                var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
+                console.log(latFinal);
+
+                // Calculate longitude decimal
+                var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
+                var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
+                var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
+                var lonDirection = myData.exifdata.GPSLongitudeRef;
+
+                var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
+                console.log(lonFinal);
+
+                document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
+
+            });
+
+
+        // Also see .name, .type
+        });
+        // document.getElementById("the-img").onclick = function() {
 
             EXIF.getData(this, function() {
 
@@ -46,7 +85,7 @@
                 document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
 
             });
-        }
+        // }
 
 
 
