@@ -28,20 +28,20 @@
     <div id="map"></div>
     <script>
 
-        function initMap(lat, lng) {
-            let latTest = 40.91194444;
-            let lngTest = -Math.abs(86.6172222);
+        // function initMap(lat, lng) {
+        //     let latTest = 40.91194444;
+        //     let lngTest = -Math.abs(86.6172222);
 
-        // The location of Uluru
-        var location = {lat: latTest, lng: lngTest};
-        // The map, centered at Uluru
-        var map = new google.maps.Map(
-            document.getElementById('map'), {zoom: 4, center: location});
-        // The marker, positioned at Uluru
-        var marker = new google.maps.Marker({position: location, map: map});
-        }
+        // // The location of Uluru
+        // var location = {lat: latTest, lng: lngTest};
+        // // The map, centered at Uluru
+        // var map = new google.maps.Map(
+        //     document.getElementById('map'), {zoom: 4, center: location});
+        // // The marker, positioned at Uluru
+        // var marker = new google.maps.Marker({position: location, map: map});
+        // }
 
-        initMap();
+        // initMap();
         
         $(':file').on('change', function () {
             var file = this.files[0];
