@@ -27,7 +27,7 @@
 
                 console.log(myData.exifdata);
 
-                document.getElementById('pic-info').innerHTML = 'This photo was taken on ' + myData.exifdata.DateTime + ' with a ' + myData.exifdata.Make + ' ' + myData.exifdata.Model;
+                document.getElementById('pic-info').innerHTML = JSON.stringify(myData.exifdata.GPSLatitude);
 
                 // Calculate latitude decimal
                 var latDegree = myData.exifdata.GPSLatitude[0].numerator;
