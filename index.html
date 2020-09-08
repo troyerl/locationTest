@@ -33,18 +33,18 @@
     </script>
     <script>
 
-        // function initMap(lat, lng) {
-        //     let latTest = 40.91194444;
-        //     let lngTest = -Math.abs(86.6172222);
+        function initMap(lat, lng) {
+            // let latTest = 40.91194444;
+            // let lngTest = -Math.abs(86.6172222);
 
-        // // The location of Uluru
-        // var location = {lat: latTest, lng: lngTest};
-        // // The map, centered at Uluru
-        // var map = new google.maps.Map(
-        //     document.getElementById('map'), {zoom: 4, center: location});
-        // // The marker, positioned at Uluru
-        // var marker = new google.maps.Marker({position: location, map: map});
-        // }
+        // The location of Uluru
+        var location = {lat, lng};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: location});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: location, map: map});
+        }
 
         // initMap();
         
@@ -69,7 +69,7 @@
                     // Calculate latitude decimal
                     var latDegree = myData.exifdata.GPSLatitude[0].numerator;
                     var latMinute = myData.exifdata.GPSLatitude[1].numerator;
-                    var latSecond = myData.exifdata.GPSLatitude[2].numerator;
+                    var latSecond = myData.exifdata.GPSLatitude[2];
                     var latDirection = myData.exifdata.GPSLatitudeRef;
 
                     var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
@@ -78,7 +78,7 @@
                     // Calculate longitude decimal
                     var lonDegree = myData.exifdata.GPSLongitude[0].numerator;
                     var lonMinute = myData.exifdata.GPSLongitude[1].numerator;
-                    var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
+                    var lonSecond = myData.exifdata.GPSLongitude[2];
                     var lonDirection = myData.exifdata.GPSLongitudeRef;
 
                     var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
@@ -89,7 +89,7 @@
                     document.getElementById('pic-info').innerHTML = `Latitude: ${lat}`;
                     document.getElementById('pic-info2').innerHTML = `Longitude: ${long}`;
 
-                    // initMap(latFinal, lonFinal);
+                    initMap(latFinal, lonFinal);
                     // 39°46'41.2"N+86°10'16.2"W
                     // document.getElementById('map-link').innerHTML = `<a href="http://www.google.com/maps/place/${test}+${test1}" target="_blank">Google Maps</a>`;
 
