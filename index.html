@@ -12,6 +12,7 @@
         <input type="button" value="Upload" />
     </form>
     <p id="pic-info"></p>
+    <p id="pic-info1"></p>
     <p id="map-link"></p>
 
     <script type="text/javascript" src="exif.js"></script>
@@ -28,6 +29,7 @@
                 console.log(myData.exifdata);
 
                 document.getElementById('pic-info').innerHTML = JSON.stringify(myData.exifdata.GPSLatitude);
+                document.getElementById('pic-info1').innerHTML = JSON.stringify(myData.exifdata.GPSLongitude);
 
                 // Calculate latitude decimal
                 var latDegree = myData.exifdata.GPSLatitude[0].numerator;
