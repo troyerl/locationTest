@@ -56,12 +56,12 @@
                 var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
                 console.log(lonFinal);
 
-                let test = `${latDegree} ${latMinute} ${latSecond}`;
-                let test1 = `${lonDegree} ${lonMinute} ${lonSecond}`;
+                let test = `${latDegree}° ${latMinute}' ${latSecond}" ${latDirection}`;
+                let test1 = `${lonDegree}° ${lonMinute}' ${lonSecond}" ${lonDirection}`;
 
 
 
-                document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
+                document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+test+','+test1+'" target="_blank">Google Maps</a>';
 
             });
 
