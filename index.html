@@ -56,8 +56,8 @@
                 var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
                 console.log(lonFinal);
 
-                let test = `${latDegree}° ${latMinute}' ${latSecond}" ${latDirection}`;
-                let test1 = `${lonDegree}° ${lonMinute}' ${lonSecond}" ${lonDirection}`;
+                let test = `${latDegree}° ${latMinute}' ${myData.exifdata.GPSLatitude[2]}" ${latDirection}`;
+                let test1 = `${lonDegree}° ${lonMinute}' ${myData.exifdata.GPSLongitude[2]}" ${lonDirection}`;
 
                 document.getElementById('pic-info').innerHTML = test;
                 document.getElementById('pic-info2').innerHTML = test1;
