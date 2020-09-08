@@ -77,8 +77,8 @@
                     let lat = `${latDegree}° ${latMinute}\' ${myData.exifdata.GPSLatitude[2]}\" ${latDirection}`;
                     let long = `${lonDegree}° ${lonMinute}\' ${myData.exifdata.GPSLongitude[2]}\" ${lonDirection}`;
 
-                    document.getElementById('pic-info').innerHTML = `Latitude: ${latFinal}`;
-                    document.getElementById('pic-info2').innerHTML = `Longitude: ${lonFinal}`;
+                    document.getElementById('pic-info').innerHTML = `Latitude: ${lat}`;
+                    document.getElementById('pic-info2').innerHTML = `Longitude: ${long}`;
 
                     // initMap(latFinal, lonFinal);
                     // 39°46'41.2"N+86°10'16.2"W
