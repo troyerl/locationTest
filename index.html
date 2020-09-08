@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EXIF</title>
+    <style>
+        /* Set the size of the div element that contains the map */
+       #map {
+         height: 400px;  /* The height is 400 pixels */
+         width: 100%;  /* The width is the width of the web page */
+        }
+     </style>
 </head>
 <body>
     <form enctype="multipart/form-data">
@@ -19,9 +26,6 @@
     <p id="map-link"></p>
 
     <div id="map"></div>
-
-    <script type="text/javascript" src="exif.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
 
         function initMap(lat, lng) {
@@ -101,6 +105,10 @@
         }
 
     </script>
-    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS7JeV1zck2kSDNLCNqq33VFNz2WuHlA&callback=initMap"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="exif.js"></script>
+    <script defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS7JeV1zck2kSDNLCNqq33VFNz2WuHlA&callback=initMap">
+    </script>
 </body>
 </html>
