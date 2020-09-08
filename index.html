@@ -69,6 +69,8 @@
                 var latMinute = myData.exifdata.GPSLatitude[1].numerator;
                 var latSecond = myData.exifdata.GPSLatitude[2].numerator;
                 var latDirection = myData.exifdata.GPSLatitudeRef;
+
+                let test = `${latDegree} ${latMinute} ${latSecond}`;
                 
                 var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
                 console.log(latFinal);
@@ -79,10 +81,12 @@
                 var lonSecond = myData.exifdata.GPSLongitude[2].numerator;
                 var lonDirection = myData.exifdata.GPSLongitudeRef;
 
+                let test1 = `${lonDegree} ${lonMinute} ${lonSecond}`;
+
                 var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
                 console.log(lonFinal);
 
-                document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+latFinal+','+lonFinal+'" target="_blank">Google Maps</a>';
+                document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+test+','+test1+'" target="_blank">Google Maps</a>';
 
             });
         // }
