@@ -32,9 +32,9 @@
 
                 console.log(myData.exifdata);
 
-                document.getElementById('pic-info1').innerHTML = JSON.stringify(myData.exifdata.GPSLatitude[2]);
+                // document.getElementById('pic-info1').innerHTML = JSON.stringify(myData.exifdata.GPSLatitude[2]);
                 // document.getElementById('pic-info2').innerHTML = JSON.stringify(myData.exifdata.GPSLatitudeRef);
-                document.getElementById('pic-info3').innerHTML = JSON.stringify(myData.exifdata.GPSLongitude[2]);
+                // document.getElementById('pic-info3').innerHTML = JSON.stringify(myData.exifdata.GPSLongitude[2]);
                 // document.getElementById('pic-info3').innerHTML = JSON.stringify(myData.exifdata.GPSLongitudeRef);
 
                 // Calculate latitude decimal
@@ -44,7 +44,6 @@
                 var latDirection = myData.exifdata.GPSLatitudeRef;
 
                 var latFinal = ConvertDMSToDD(latDegree, latMinute, latSecond, latDirection);
-                console.log(latFinal);
 
 
                 // Calculate longitude decimal
@@ -54,15 +53,14 @@
                 var lonDirection = myData.exifdata.GPSLongitudeRef;
 
                 var lonFinal = ConvertDMSToDD(lonDegree, lonMinute, lonSecond, lonDirection);
-                console.log(lonFinal);
 
-                let test = `${latDegree}° ${latMinute}\' ${myData.exifdata.GPSLatitude[2]}\" ${latDirection}`;
-                let test1 = `${lonDegree}° ${lonMinute}\' ${myData.exifdata.GPSLongitude[2]}\" ${lonDirection}`;
+                let lat = `${latDegree}° ${latMinute}\' ${myData.exifdata.GPSLatitude[2]}\" ${latDirection}`;
+                let long = `${lonDegree}° ${lonMinute}\' ${myData.exifdata.GPSLongitude[2]}\" ${lonDirection}`;
 
-                document.getElementById('pic-info').innerHTML = test;
-                document.getElementById('pic-info2').innerHTML = `http://www.google.com/maps/place/${test}+${test1}`;
+                document.getElementById('pic-info').innerHTML = `Latitude: ${lat}`;
+                document.getElementById('pic-info2').innerHTML = `Longitude: ${long}`;
                 // 39°46'41.2"N+86°10'16.2"W
-                document.getElementById('map-link').innerHTML = `<a href="http://www.google.com/maps/place/${test}+${test1}" target="_blank">Google Maps</a>`;
+                // document.getElementById('map-link').innerHTML = `<a href="http://www.google.com/maps/place/${test}+${test1}" target="_blank">Google Maps</a>`;
 
             });
 
