@@ -47,9 +47,9 @@
             var contentString = '<div id="content">'+
                 '<div id="siteNotice">'+
                 '</div>'+
-                '<h1 id="firstHeading" class="firstHeading">Location Added</h1>'+
+                '<h1 id="firstHeading" class="firstHeading">Location Taken At</h1>'+
                 '<div id="bodyContent">'+
-                '<p>This is that location that you added this image at</p>'+
+                '<p>This is that location that you took the image</p>'+
                 '</div>'+
                 '</div>';
 
@@ -64,11 +64,7 @@
             });
 
             infowindow.open(map, marker);
-        // The marker, positioned at Uluru
-        // var marker = new google.maps.Marker({position: location, map: map});
         }
-
-        // initMap();
         
         $(':file').on('change', function () {
             var file = this.files[0];
@@ -80,13 +76,6 @@
                 EXIF.getData(file, function() {
 
                     myData = file;
-
-                    console.log(myData.exifdata);
-
-                    // document.getElementById('pic-info1').innerHTML = JSON.stringify(myData.exifdata.GPSLatitude[2]);
-                    // document.getElementById('pic-info2').innerHTML = JSON.stringify(myData.exifdata.GPSLatitudeRef);
-                    // document.getElementById('pic-info3').innerHTML = JSON.stringify(myData.exifdata.GPSLongitude[2]);
-                    // document.getElementById('pic-info3').innerHTML = JSON.stringify(myData.exifdata.GPSLongitudeRef);
 
                     // Calculate latitude decimal
                     var latDegree = myData.exifdata.GPSLatitude[0].numerator;
