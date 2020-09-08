@@ -32,10 +32,10 @@
 
                 console.log(myData.exifdata);
 
-                document.getElementById('pic-info').innerHTML = JSON.stringify(myData.exifdata.GPSLatitude);
-                document.getElementById('pic-info2').innerHTML = JSON.stringify(myData.exifdata.GPSLatitudeRef);
-                document.getElementById('pic-info1').innerHTML = JSON.stringify(myData.exifdata.GPSLongitude);
-                document.getElementById('pic-info3').innerHTML = JSON.stringify(myData.exifdata.GPSLongitudeRef);
+                // document.getElementById('pic-info').innerHTML = JSON.stringify(myData.exifdata.GPSLatitude);
+                // document.getElementById('pic-info2').innerHTML = JSON.stringify(myData.exifdata.GPSLatitudeRef);
+                // document.getElementById('pic-info1').innerHTML = JSON.stringify(myData.exifdata.GPSLongitude);
+                // document.getElementById('pic-info3').innerHTML = JSON.stringify(myData.exifdata.GPSLongitudeRef);
 
                 // Calculate latitude decimal
                 var latDegree = myData.exifdata.GPSLatitude[0].numerator;
@@ -59,7 +59,8 @@
                 let test = `${latDegree}° ${latMinute}' ${latSecond}" ${latDirection}`;
                 let test1 = `${lonDegree}° ${lonMinute}' ${lonSecond}" ${lonDirection}`;
 
-
+                document.getElementById('pic-info').innerHTML = test;
+                document.getElementById('pic-info2').innerHTML = test1;
 
                 document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+test+','+test1+'" target="_blank">Google Maps</a>';
 
