@@ -60,9 +60,9 @@
                 let test1 = `${lonDegree}° ${lonMinute}\' ${myData.exifdata.GPSLongitude[2]}\" ${lonDirection}`;
 
                 document.getElementById('pic-info').innerHTML = test;
-                document.getElementById('pic-info2').innerHTML = test1;
-
-                document.getElementById('map-link').innerHTML = '<a href="http://www.google.com/maps/place/'+test+','+test1+'" target="_blank">Google Maps</a>';
+                document.getElementById('pic-info2').innerHTML = `http://www.google.com/maps/place/${test}+${test1}`;
+                // 39°46'41.2"N+86°10'16.2"W
+                document.getElementById('map-link').innerHTML = `<a href="http://www.google.com/maps/place/${test}+${test1}" target="_blank">Google Maps</a>`;
 
             });
 
