@@ -18,15 +18,25 @@
 
     <p id="map-link"></p>
 
+    <div id="map"></div>
+
     <script type="text/javascript" src="exif.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
+
+        function initMap(lat, lng) {
+        // The location of Uluru
+        var location = {lat, lng};
+        // The map, centered at Uluru
+        var map = new google.maps.Map(
+            document.getElementById('map'), {zoom: 4, center: location});
+        // The marker, positioned at Uluru
+        var marker = new google.maps.Marker({position: location, map: map});
+        }
         
         $(':file').on('change', function () {
             var file = this.files[0];
-            
-
-            console.log(file);
+        
 
             if (file.name.split('.')[1] === 'png' || file.name.split('.')[1] === 'PNG') {
                 document.getElementById('pic-info1').innerHTML = 'We only support jpg files'
@@ -64,6 +74,8 @@
 
                     document.getElementById('pic-info').innerHTML = `Latitude: ${lat}`;
                     document.getElementById('pic-info2').innerHTML = `Longitude: ${long}`;
+
+                    initMap(latFinal, lonFinal);
                     // 39°46'41.2"N+86°10'16.2"W
                     // document.getElementById('map-link').innerHTML = `<a href="http://www.google.com/maps/place/${test}+${test1}" target="_blank">Google Maps</a>`;
 
@@ -84,5 +96,6 @@
         }
 
     </script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyByS7JeV1zck2kSDNLCNqq33VFNz2WuHlA&callback=initMap"></script>
 </body>
 </html>
